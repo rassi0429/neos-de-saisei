@@ -23,13 +23,13 @@ setTimeout(() => {
 
 function sendWH() {
   chrome.storage.sync.get(["data"], result => {
-    let webHookAddress = result.data.webHookAddress;
+    let roomId = result.data.webHookAddress;
     let userName = result.data.userName;
     const regex = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/
 
 
     const xml = new XMLHttpRequest();
-    xml.open("POST", "https://textbox.kokoa.dev/kokoa/neosdesaisei/"+webHookAddress, false);
+    xml.open("POST", "https://textbox.kokoa.dev/kokoa/neosdesaisei/"+roomId, false);
     xml.setRequestHeader("content-type", "text/plain");
     xml.send(window.location)
   })
